@@ -6,7 +6,7 @@ import {colors} from '../constants/colors';
 const HomeScreen = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text>Find the suitable WATCH for you now.</Text>
+      <Text style={styles.headline}>Find the suitable WATCH for you now.</Text>
     </View>
   );
 };
@@ -19,4 +19,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     padding: spacing.md,
   },
+  headline: {},
 });
