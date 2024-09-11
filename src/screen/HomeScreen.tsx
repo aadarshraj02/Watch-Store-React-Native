@@ -1,6 +1,6 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
-import {fontSize, spacing} from '../constants/dimensions';
+import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamily} from '../constants/fonts';
 
@@ -12,6 +12,13 @@ const HomeScreen = (): JSX.Element => {
         <View style={styles.inputWrapper}>
           <Image
             source={require('../assets/icons/search.png')}
+            style={styles.logo}
+          />
+          <TextInput style={styles.textInput} />
+        </View>
+        <View style={styles.categoryContainer}>
+          <Image
+            source={require('../assets/icons/category.png')}
             style={styles.logo}
           />
         </View>
@@ -37,5 +44,10 @@ const styles = StyleSheet.create({
   },
   mainInputContainer: {},
   inputWrapper: {},
-  logo: {},
+  logo: {
+    height: iconSize.md,
+    width: iconSize.md,
+  },
+  textInput: {},
+  categoryContainer: {},
 });
