@@ -1,12 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {spacing} from '../constants/dimensions';
+import {fontSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 
 const HomeScreen = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text style={styles.headline}>Find the suitable WATCH for you now.</Text>
+      <Text style={styles.headline}>Find your suitable Watch now.</Text>
     </View>
   );
 };
@@ -19,5 +19,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     padding: spacing.md,
   },
-  headline: {},
+  headline: {
+    fontSize: fontSize.xxl,
+    color: colors.black,
+  },
 });
