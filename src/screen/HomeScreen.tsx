@@ -3,12 +3,18 @@ import React from 'react';
 
 const HomeScreen = (): JSX.Element => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style={styles.container}>
+      <Text>Find the suitable WATCH for you now.</Text>
     </View>
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding:20
+  },
+});
