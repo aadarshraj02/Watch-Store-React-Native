@@ -6,10 +6,13 @@ import HomeScreen from './src/screen/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-const App = () => {
+const App = (): JSX.Element => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
         <Stack.Screen name={'HOME'} component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
