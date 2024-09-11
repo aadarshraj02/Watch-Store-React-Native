@@ -14,7 +14,11 @@ const HomeScreen = (): JSX.Element => {
             source={require('../assets/icons/search.png')}
             style={styles.logo}
           />
-          <TextInput style={styles.textInput} />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Search Watches"
+            placeholderTextColor={colors.placeholderText}
+          />
         </View>
         <View style={styles.categoryContainer}>
           <Image
@@ -42,12 +46,31 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     letterSpacing: 1.5,
   },
-  mainInputContainer: {},
-  inputWrapper: {},
+  mainInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: spacing.xl,
+  },
+  inputWrapper: {
+    flex: 1,
+    borderWidth: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: colors.placeholderText,
+    borderRadius: 44,
+    paddingHorizontal: spacing.md,
+  },
   logo: {
     height: iconSize.md,
     width: iconSize.md,
   },
-  textInput: {},
-  categoryContainer: {},
+  textInput: {
+    flex: 1,
+    paddingHorizontal: spacing.md,
+    fontSize: fontSize.md,
+    fontFamily: fontFamily.Medium,
+  },
+  categoryContainer: {
+    paddingHorizontal: spacing.sm,
+  },
 });
