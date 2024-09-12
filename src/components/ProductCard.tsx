@@ -21,12 +21,20 @@ export default ProductCard;
 const styles = StyleSheet.create({
   container: {
     width: '48%',
-    height: 150,
+    // height: 150,
     elevation: 5,
     backgroundColor: colors.background,
     borderRadius: 12,
     marginVertical: spacing.md,
   },
-  imageWrapper: {},
-  productImage: {},
+  imageWrapper: {
+    backgroundColor: '#ffc8b7',
+    borderRadius: 12,
+    margin: spacing.sm,
+  },
+  productImage: {
+    height: 150,
+    width: '100%',
+    resizeMode: 'center',
+  },
 });
