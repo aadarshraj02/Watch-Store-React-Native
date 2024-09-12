@@ -10,36 +10,37 @@ import {smartWatch} from '../data/smartWatch';
 const HomeScreen = (): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text style={styles.headline}>Find your suitable Watch now.</Text>
-      <View style={styles.mainInputContainer}>
-        <View style={styles.inputWrapper}>
-          <Image
-            source={require('../assets/icons/search.png')}
-            style={styles.logo}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Search Watches"
-            placeholderTextColor={colors.placeholderText}
-          />
-        </View>
-        <View style={styles.categoryContainer}>
-          <Image
-            source={require('../assets/icons/category.png')}
-            style={styles.logo}
-          />
-        </View>
-      </View>
-      <Category />
       <FlatList
+        ListHeaderComponent={
+          <>
+            <Text style={styles.headline}>Find your suitable Watch now.</Text>
+            <View style={styles.mainInputContainer}>
+              <View style={styles.inputWrapper}>
+                <Image
+                  source={require('../assets/icons/search.png')}
+                  style={styles.logo}
+                />
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="Search Watches"
+                  placeholderTextColor={colors.placeholderText}
+                />
+              </View>
+              <View style={styles.categoryContainer}>
+                <Image
+                  source={require('../assets/icons/category.png')}
+                  style={styles.logo}
+                />
+              </View>
+            </View>
+            <Category />
+          </>
+        }
         data={smartWatch}
         renderItem={({item}) => <ProductCard item={item} />}
         numColumns={2}
         columnWrapperStyle={{
           justifyContent: 'space-between',
-        }}
-        contentContainerStyle={{
-          paddingBottom: 250,
         }}
         showsHorizontalScrollIndicator={false}
       />
