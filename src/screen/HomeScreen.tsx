@@ -3,6 +3,7 @@ import React from 'react';
 import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamily} from '../constants/fonts';
+import Category from '../components/Category';
 
 const HomeScreen = (): JSX.Element => {
   return (
@@ -27,6 +28,7 @@ const HomeScreen = (): JSX.Element => {
           />
         </View>
       </View>
+      <Category />
     </View>
   );
 };
