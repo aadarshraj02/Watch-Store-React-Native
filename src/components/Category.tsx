@@ -40,6 +40,7 @@ const Category = (): JSX.Element => {
       ItemSeparatorComponent={() => (
         <View style={{paddingHorizontal: spacing.sm}} />
       )}
+      showsHorizontalScrollIndicator={false}
     />
   );
 };
