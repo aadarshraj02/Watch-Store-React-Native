@@ -12,6 +12,11 @@ const ProductCard = (): JSX.Element => {
       <View style={styles.imageWrapper}>
         <Image source={{uri: imageUrl}} style={styles.productImage} />
       </View>
+      <view style={styles.contentContainer}>
+        <Text style={styles.name}>Apple Watch SE2</Text>
+        <Text style={styles.brand}>Apple</Text>
+        <Text style={styles.price}>Price:</Text>
+      </view>
     </TouchableOpacity>
   );
 };
@@ -37,4 +42,8 @@ const styles = StyleSheet.create({
     width: '100%',
     resizeMode: 'center',
   },
+  contentContainer: {},
+  name: {},
+  brand: {},
+  price: {},
 });
