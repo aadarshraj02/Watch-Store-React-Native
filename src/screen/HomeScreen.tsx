@@ -42,7 +42,10 @@ const HomeScreen = (): JSX.Element => {
         columnWrapperStyle={{
           justifyContent: 'space-between',
         }}
-        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
+          padding: spacing.md,
+        }}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -53,7 +56,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.background,
-    padding: spacing.md,
   },
   headline: {
     fontSize: fontSize.xxl,
