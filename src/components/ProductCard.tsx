@@ -14,7 +14,9 @@ const ProductCard = (): JSX.Element => {
         <Image source={{uri: imageUrl}} style={styles.productImage} />
       </View>
       <View style={styles.contentContainer}>
-        <Text style={styles.name}>Apple Watch SE2</Text>
+        <Text style={styles.name} numberOfLines={1}>
+          Apple Watch SE2
+        </Text>
         <Text style={styles.brand}>Apple</Text>
         <Text style={styles.price}>Price:</Text>
       </View>
