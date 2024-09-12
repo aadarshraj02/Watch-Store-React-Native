@@ -1,7 +1,8 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {colors} from '../constants/colors';
-import {spacing} from '../constants/dimensions';
+import {fontSize, spacing} from '../constants/dimensions';
+import {fontFamily} from '../constants/fonts';
 
 const imageUrl =
   'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713456/Croma%20Assets/Communication/Wearable%20Devices/Images/300693_0_pkladv.png';
@@ -12,11 +13,11 @@ const ProductCard = (): JSX.Element => {
       <View style={styles.imageWrapper}>
         <Image source={{uri: imageUrl}} style={styles.productImage} />
       </View>
-      <view style={styles.contentContainer}>
+      <View style={styles.contentContainer}>
         <Text style={styles.name}>Apple Watch SE2</Text>
         <Text style={styles.brand}>Apple</Text>
         <Text style={styles.price}>Price:</Text>
-      </view>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -38,12 +39,28 @@ const styles = StyleSheet.create({
     margin: spacing.sm,
   },
   productImage: {
-    height: 150,
+    height: 130,
     width: '100%',
     resizeMode: 'center',
   },
-  contentContainer: {},
-  name: {},
-  brand: {},
-  price: {},
+  contentContainer: {
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.sm,
+  },
+  name: {
+    color: colors.black,
+    fontSize: fontSize.md,
+    fontFamily: fontFamily.SemiBold,
+  },
+  brand: {
+    color: colors.gray,
+    fontSize: fontSize.sm,
+    fontFamily: fontFamily.Medium,
+    paddingVertical: spacing.xs,
+  },
+  price: {
+    color: colors.purple,
+    fontSize: fontSize.md,
+    fontFamily: fontFamily.Medium,
+  },
 });
