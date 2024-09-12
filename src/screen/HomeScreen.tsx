@@ -15,12 +15,11 @@ const HomeScreen = (): JSX.Element => {
 
   const handleUpdatedCategory = (newCategory: any) => {
     if (newCategory === 'Smart Watch') {
-      setSelectedCategory('Smart Watch');
       setData(smartWatch);
     } else if (newCategory === 'Headphones') {
-      setSelectedCategory('Headphones');
       setData(headphones);
     }
+    setSelectedCategory(newCategory);
   };
 
   return (
