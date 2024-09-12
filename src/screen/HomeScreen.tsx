@@ -4,6 +4,7 @@ import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamily} from '../constants/fonts';
 import Category from '../components/Category';
+import ProductCard from '../components/ProductCard';
 
 const HomeScreen = (): JSX.Element => {
   return (
@@ -29,6 +30,7 @@ const HomeScreen = (): JSX.Element => {
         </View>
       </View>
       <Category />
+      <ProductCard />
     </View>
   );
 };
