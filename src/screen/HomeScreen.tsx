@@ -1,10 +1,11 @@
-import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
 import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamily} from '../constants/fonts';
 import Category from '../components/Category';
 import ProductCard from '../components/ProductCard';
+import {smartWatch} from '../data/smartWatch';
 
 const HomeScreen = (): JSX.Element => {
   return (
@@ -30,7 +31,18 @@ const HomeScreen = (): JSX.Element => {
         </View>
       </View>
       <Category />
-      <ProductCard />
+      <FlatList
+        data={smartWatch}
+        renderItem={({item}) => <ProductCard item={item} />}
+        numColumns={2}
+        columnWrapperStyle={{
+          justifyContent: 'space-between',
+        }}
+        contentContainerStyle={{
+          paddingBottom: 250,
+        }}
+        showsHorizontalScrollIndicator={false}
+      />
     </View>
   );
 };
