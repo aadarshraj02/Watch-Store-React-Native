@@ -4,21 +4,36 @@ import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimensions';
 import {fontFamily} from '../constants/fonts';
 
-const imageUrl =
-  'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1694713456/Croma%20Assets/Communication/Wearable%20Devices/Images/300693_0_pkladv.png';
+type SmartWatch = {
+  id: number;
+  name: string;
+  brand: string;
+  price: number;
+  image: string;
+  images: string[];
+  details: string;
+  review: string;
+};
 
-const ProductCard = (): JSX.Element => {
+type ProductCardProps = {
+  item: SmartWatch;
+};
+
+const ProductCard = ({item}: ProductCardProps): JSX.Element => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.imageWrapper}>
-        <Image source={{uri: imageUrl}} style={styles.productImage} />
+        <Image source={{uri: item.image}} style={styles.productImage} />
       </View>
       <View style={styles.contentContainer}>
         <Text style={styles.name} numberOfLines={1}>
-          Apple Watch SE2
+          {item.name}
         </Text>
-        <Text style={styles.brand}>Apple</Text>
-        <Text style={styles.price}>Price:</Text>
+        <Text style={styles.brand}>{item.brand}</Text>
+        <Text style={styles.price}>
+          <Text style={styles.priceLabel}>Price: </Text>
+          <Text style={styles.priceValue}>${item.price}</Text>
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -29,7 +44,6 @@ export default ProductCard;
 const styles = StyleSheet.create({
   container: {
     width: '48%',
-    // height: 150,
     elevation: 5,
     backgroundColor: colors.background,
     borderRadius: 12,
@@ -61,8 +75,14 @@ const styles = StyleSheet.create({
     paddingVertical: spacing.xs,
   },
   price: {
-    color: colors.purple,
     fontSize: fontSize.md,
     fontFamily: fontFamily.Medium,
+  },
+  priceLabel: {
+    color: colors.purple,
+  },
+  priceValue: {
+    color: colors.black,
+    textAlign: 'center',
   },
 });
