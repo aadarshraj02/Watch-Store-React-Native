@@ -1,15 +1,26 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {fontSize, spacing} from '../constants/dimensions';
 import {fontFamily} from '../constants/fonts';
 import {colors} from '../constants/colors';
+import {category} from '../data/data';
 
 const Category = (): JSX.Element => {
   return (
-    <TouchableOpacity>
-      <Text style={styles.categoryText}>Smart Watch</Text>
-      <View style={styles.underline}></View>
-    </TouchableOpacity>
+    <FlatList
+      data={category}
+      renderItem={({item}) => (
+        <TouchableOpacity>
+          <Text style={styles.categoryText}>{item.name}</Text>
+          <View style={styles.underline}></View>
+        </TouchableOpacity>
+      )}
+      keyExtractor={item => item.id}
+      horizontal
+      ItemSeparatorComponent={() => (
+        <View style={{paddingHorizontal: spacing.sm}} />
+      )}
+    />
   );
 };
 
@@ -24,7 +35,7 @@ const styles = StyleSheet.create({
   underline: {
     borderBottomColor: colors.purple,
     borderBottomWidth: 2,
-    width: '70%',
+    width: '60%',
     marginTop: spacing.sm,
   },
 });
