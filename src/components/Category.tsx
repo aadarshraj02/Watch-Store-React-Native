@@ -1,16 +1,13 @@
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
 import {fontSize, spacing} from '../constants/dimensions';
 import {fontFamily} from '../constants/fonts';
 import {colors} from '../constants/colors';
 import {category} from '../data/data';
 
-const Category = (): JSX.Element => {
-  const [selectedCategory, setSelectedCategory] =
-    useState<string>('Smart Watch');
 
+const Category = ({selectedCategory, handleUpdatedCategory}): JSX.Element => {
   const handleSelectCategory = (category: string) => {
-    setSelectedCategory(category);
+    handleUpdatedCategory(category);
   };
 
   return (

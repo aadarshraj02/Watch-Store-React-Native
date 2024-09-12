@@ -1,13 +1,28 @@
 import {FlatList, Image, StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import {fontFamily} from '../constants/fonts';
 import Category from '../components/Category';
 import ProductCard from '../components/ProductCard';
 import {smartWatch} from '../data/smartWatch';
+import {headphones} from '../data/headphones';
 
 const HomeScreen = (): JSX.Element => {
+  const [data, setData] = useState(smartWatch);
+  const [selectedCategory, setSelectedCategory] =
+    useState<string>('Smart Watch');
+
+  const handleUpdatedCategory = (newCategory: any) => {
+    if (newCategory === 'Smart Watch') {
+      setSelectedCategory('Smart Watch');
+      setData(smartWatch);
+    } else if (newCategory === 'Headphones') {
+      setSelectedCategory('Headphones');
+      setData(headphones);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -33,10 +48,13 @@ const HomeScreen = (): JSX.Element => {
                 />
               </View>
             </View>
-            <Category />
+            <Category
+              selectedCategory={selectedCategory}
+              handleUpdatedCategory={handleUpdatedCategory}
+            />
           </>
         }
-        data={smartWatch}
+        data={data}
         renderItem={({item}) => <ProductCard item={item} />}
         numColumns={2}
         columnWrapperStyle={{
