@@ -8,7 +8,6 @@ const ProductDetailsScreen = (): JSX.Element => {
   return (
     <View>
       <Header />
-      <Text>ProductDetailsScreen</Text>
     </View>
   );
 };
