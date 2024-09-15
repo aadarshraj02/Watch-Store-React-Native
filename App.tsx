@@ -15,7 +15,10 @@ const App = (): JSX.Element => {
           headerShown: false,
         }}>
         <Stack.Screen name={'HOME'} component={HomeScreen} />
-        <Stack.Screen name={'PRODUCT DETAILS'} component={ProductDetailsScreen} />
+        <Stack.Screen
+          name={'PRODUCT_DETAILS'}
+          component={ProductDetailsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
