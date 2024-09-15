@@ -6,10 +6,17 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const Header = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <TouchableOpacity>
-        <Ionicons name={'arrow-back'} size={iconSize.md} color="black" />
-        <AntDesign name={'hearto'} size={iconSize.md} color="black" />
+        <View style={styles.iconWrapper}>
+          <Ionicons name="arrow-back" size={iconSize.md} color="black" />
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <View style={styles.iconWrapper}>
+          <AntDesign name="hearto" size={iconSize.md} color="black" />
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -17,4 +24,15 @@ const Header = () => {
 
 export default Header;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+  },
+  iconWrapper: {
+    marginHorizontal: 10,
+  },
+});
