@@ -6,12 +6,20 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import {spacing} from '../constants/dimensions';
+import {colors} from '../constants/colors';
 
 const screenWidth = Dimensions.get('window').width;
 
-const ProductCarousel = ({images}) => {
+const ProductCarousel = ({images}): JSX.Element => {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const onViewRef = useRef(viewableItems => {
+    if (viewableItems.viewableItems.length > 0)
+      setActiveSlide(viewableItems.viewableItems[0].index);
+  });
+
   return (
     <>
       <FlatList
@@ -25,12 +33,31 @@ const ProductCarousel = ({images}) => {
         }}
         keyExtractor={(item, index) => index.toString()}
         horizontal
+        onViewableItemsChanged={onViewRef.current}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
         snapToAlignment="center"
         snapToInterval={screenWidth}
         decelerationRate={'fast'}
       />
+      <View style={styles.pagination}>
+        {images.map((_, index: number) => (
+          <View
+            key={index}
+            style={[
+              styles.dot,
+              index === activeSlide && {
+                width: 20,
+                borderRadius: 32,
+              },
+              {
+                backgroundColor:
+                  index === activeSlide ? colors.purple : colors.gray,
+              },
+            ]}
+          />
+        ))}
+      </View>
     </>
   );
 };
@@ -49,5 +76,17 @@ const styles = StyleSheet.create({
     width: 350,
     resizeMode: 'cover',
     borderRadius: 10,
+  },
+  pagination: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: spacing.md,
+  },
+  dot: {
+    height: 10,
+    width: 10,
+    borderRadius: 5,
+    marginHorizontal: spacing.xs,
+    backgroundColor: colors.gray,
   },
 });
