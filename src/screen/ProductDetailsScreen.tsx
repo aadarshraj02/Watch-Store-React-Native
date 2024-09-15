@@ -11,7 +11,7 @@ const ProductDetailsScreen = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Header />
-      <ProductCarousel />
+      <ProductCarousel images={item.images} />
     </View>
   );
 };
@@ -20,7 +20,6 @@ export default ProductDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: spacing.md,
     backgroundColor: colors.background,
   },
