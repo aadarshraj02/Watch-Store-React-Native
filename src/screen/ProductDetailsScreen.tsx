@@ -3,12 +3,13 @@ import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {iconSize} from '../constants/dimensions';
+import Header from '../components/Header';
 
 const ProductDetailsScreen = (): JSX.Element => {
   const item = useRoute().params.item;
   return (
     <View>
-      <Ionicons name={'arrow-back'} size={iconSize.md} color="black" />
+      <Header />
       <Text>ProductDetailsScreen</Text>
     </View>
   );
