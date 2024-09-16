@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: fontSize.md,
     fontWeight: 'medium',
-    color: colors.gray,
+    color: colors.gray, 
   },
   underline: {
     borderBottomColor: colors.purple,
