@@ -37,7 +37,7 @@ const ProductDetailsScreen = (): JSX.Element => {
   const item = useRoute().params.item;
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style={styles.scrollViewContainer}>
         <Header />
         <ProductCarousel images={item.images} />
         <View style={styles.titleContainer}>
@@ -128,7 +128,6 @@ export default ProductDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing.md,
     backgroundColor: colors.background,
   },
   titleContainer: {
@@ -212,5 +211,9 @@ const styles = StyleSheet.create({
     color: colors.gray,
     fontSize: fontSize.md,
     paddingVertical: spacing.xs,
+    paddingBottom: spacing.lg,
+  },
+  scrollViewContainer: {
+    padding: spacing.md,
   },
 });
