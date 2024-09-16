@@ -3,7 +3,7 @@ import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import Header from '../components/Header';
 import ProductCarousel from '../components/ProductCarousel';
-import {iconSize, spacing} from '../constants/dimensions';
+import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {fontFamily} from '../constants/fonts';
@@ -45,8 +45,26 @@ const styles = StyleSheet.create({
     fontFamily: fontFamily.Bold,
     fontWeight: 800,
     color: colors.black,
+    fontSize: fontSize.lg,
   },
-  productBrand: {},
-  ratingWrapper: {},
-  productRating: {},
+  productBrand: {
+    fontFamily: fontFamily.Medium,
+    color: colors.gray,
+    fontSize: fontSize.sm,
+    paddingVertical: spacing.sm,
+  },
+  ratingWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    backgroundColor: colors.lavender,
+    borderRadius: spacing.sm,
+    padding: spacing.sm,
+    height: 50,
+    marginTop: spacing.md,
+  },
+  productRating: {
+    color: colors.gray,
+    fontSize: fontSize.md,
+  },
 });
