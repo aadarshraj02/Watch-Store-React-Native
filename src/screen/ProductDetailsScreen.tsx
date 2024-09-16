@@ -74,11 +74,27 @@ const ProductDetailsScreen = (): JSX.Element => {
       </View>
       <View style={styles.detailsReviewTabs}>
         <TouchableOpacity>
-          <Text style={styles.tabText}>Details</Text>
+          <Text
+            style={[
+              styles.tabText,
+              {
+                color: colors.purple,
+              },
+            ]}>
+            Details
+          </Text>
           <View style={styles.underline} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.tabText}>Review</Text>
+          <Text
+            style={[
+              styles.tabText,
+              {
+                color: colors.purple,
+              },
+            ]}>
+            Review
+          </Text>
           <View style={styles.underline} />
         </TouchableOpacity>
       </View>
