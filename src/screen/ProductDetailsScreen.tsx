@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import Header from '../components/Header';
@@ -7,6 +7,21 @@ import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {fontFamily} from '../constants/fonts';
+
+const colorsData = [
+  {
+    colorName: 'Silver',
+    colorValue: '#F0F2F2',
+  },
+  {
+    colorName: 'Bright Orange',
+    colorValue: '#F25745',
+  },
+  {
+    colorName: 'Starlight',
+    colorValue: '#FAF6F2',
+  },
+];
 
 const ProductDetailsScreen = (): JSX.Element => {
   const item = useRoute().params.item;
@@ -26,19 +41,34 @@ const ProductDetailsScreen = (): JSX.Element => {
       </View>
       <View style={styles.colorsContainer}>
         <Text style={styles.colorsHeading}>Colors</Text>
-        <View style={styles.parentSelectColorContainer}>
-          <TouchableOpacity
-            style={[
-              styles.selectColorContainer,
-              // {
-              //   borderColor: colors.purple,
-              // },
-            ]}>
-            <View style={styles.circleColor} />
-            <Text style={styles.colorText}>Silver</Text>
-          </TouchableOpacity>
-        </View>
+        <FlatList
+          data={colorsData}
+          renderItem={({item, index}) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.selectColorContainer,
+                // {
+                //   borderColor: colors.purple,
+                // },
+              ]}>
+              <View
+                style={[styles.circleColor, {backgroundColor: item.colorValue}]}
+              />
+              <Text style={styles.colorText}>{item.colorName}</Text>
+            </TouchableOpacity>
+          )}
+          horizontal
+          ItemSeparatorComponent={() => (
+            <View
+              style={{
+                width: spacing.sm,
+              }}></View>
+          )}
+        />
       </View>
+
+      
     </View>
   );
 };
@@ -90,7 +120,6 @@ const styles = StyleSheet.create({
     color: colors.black,
     paddingBottom: spacing.md,
   },
-  parentSelectColorContainer: {},
   selectColorContainer: {
     borderColor: colors.gray,
     borderWidth: 1,
