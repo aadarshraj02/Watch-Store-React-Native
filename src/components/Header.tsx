@@ -3,11 +3,13 @@ import React from 'react';
 import {iconSize} from '../constants/dimensions';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {useNavigation} from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <View style={styles.iconWrapper}>
           <Ionicons name="arrow-back" size={iconSize.md} color="black" />
         </View>
