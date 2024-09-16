@@ -105,6 +105,9 @@ const ProductDetailsScreen = (): JSX.Element => {
           {selectedTab === 'Review' && <View style={styles.underline} />}
         </TouchableOpacity>
       </View>
+      <Text style={styles.detailsContainer}>
+        {selectedTab === 'Details' ? item.details : item.review}
+      </Text>
     </View>
   );
 };
@@ -192,5 +195,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     width: '50%',
     marginTop: spacing.xs,
+  },
+  detailsContainer: {
+    color: colors.gray,
+    fontSize: fontSize.md,
+    paddingVertical: spacing.xs,
   },
 });
