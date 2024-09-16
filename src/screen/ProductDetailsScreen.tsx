@@ -6,6 +6,7 @@ import ProductCarousel from '../components/ProductCarousel';
 import {iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {fontFamily} from '../constants/fonts';
 
 const ProductDetailsScreen = (): JSX.Element => {
   const item = useRoute().params.item;
@@ -34,9 +35,17 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     backgroundColor: colors.background,
   },
-  titleContainer: {},
-  titleWrapper: {},
-  productTitle: {},
+  titleContainer: {
+    flexDirection: 'row',
+  },
+  titleWrapper: {
+    flex: 1,
+  },
+  productTitle: {
+    fontFamily: fontFamily.Bold,
+    fontWeight: 800,
+    color: colors.black,
+  },
   productBrand: {},
   ratingWrapper: {},
   productRating: {},
