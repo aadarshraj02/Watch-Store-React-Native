@@ -25,6 +25,7 @@ const colorsData = [
 
 const ProductDetailsScreen = (): JSX.Element => {
   const [selectedColor, setSelectedColor] = useState('');
+  const [selectedTab, setSelectedTab] = useState('Details');
 
   const item = useRoute().params.item;
   return (
@@ -73,29 +74,35 @@ const ProductDetailsScreen = (): JSX.Element => {
         />
       </View>
       <View style={styles.detailsReviewTabs}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setSelectedTab('Details');
+          }}>
           <Text
             style={[
               styles.tabText,
-              {
+              selectedTab === 'Details' && {
                 color: colors.purple,
               },
             ]}>
             Details
           </Text>
-          <View style={styles.underline} />
+          {selectedTab === 'Details' && <View style={styles.underline} />}
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setSelectedTab('Review');
+          }}>
           <Text
             style={[
               styles.tabText,
-              {
+              selectedTab === 'Review' && {
                 color: colors.purple,
               },
             ]}>
             Review
           </Text>
-          <View style={styles.underline} />
+          {selectedTab === 'Review' && <View style={styles.underline} />}
         </TouchableOpacity>
       </View>
     </View>
