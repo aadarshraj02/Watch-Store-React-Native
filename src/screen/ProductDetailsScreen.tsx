@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 import Header from '../components/Header';
@@ -22,6 +22,21 @@ const ProductDetailsScreen = (): JSX.Element => {
         <View style={styles.ratingWrapper}>
           <AntDesign name={'star'} color={colors.yellow} size={iconSize.sm} />
           <Text style={styles.productRating}>4.5</Text>
+        </View>
+      </View>
+      <View style={styles.colorsContainer}>
+        <Text style={styles.colorsHeading}>Colors</Text>
+        <View style={styles.parentSelectColorContainer}>
+          <TouchableOpacity
+            style={[
+              styles.selectColorContainer,
+              // {
+              //   borderColor: colors.purple,
+              // },
+            ]}>
+            <View style={styles.circleColor} />
+            <Text style={styles.colorText}>Silver</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -66,5 +81,35 @@ const styles = StyleSheet.create({
   productRating: {
     color: colors.gray,
     fontSize: fontSize.md,
+  },
+  colorsContainer: {
+    paddingTop: spacing.md,
+  },
+  colorsHeading: {
+    fontSize: fontSize.md,
+    color: colors.black,
+    paddingBottom: spacing.md,
+  },
+  parentSelectColorContainer: {},
+  selectColorContainer: {
+    borderColor: colors.gray,
+    borderWidth: 1,
+    borderRadius: 4,
+    padding: spacing.sm,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  circleColor: {
+    height: spacing.md,
+    width: spacing.md,
+    backgroundColor: colors.purple,
+    borderRadius: spacing.md / 2,
+  },
+  colorText: {
+    fontSize: fontSize.sm,
+    fontWeight: 'medium',
+    color: colors.black,
   },
 });
