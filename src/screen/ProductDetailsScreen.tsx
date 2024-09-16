@@ -72,6 +72,16 @@ const ProductDetailsScreen = (): JSX.Element => {
           )}
         />
       </View>
+      <View style={styles.detailsReviewTabs}>
+        <TouchableOpacity>
+          <Text style={styles.tabText}>Details</Text>
+          <View style={styles.underline} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.tabText}>Review</Text>
+          <View style={styles.underline} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -143,5 +153,21 @@ const styles = StyleSheet.create({
     fontSize: fontSize.sm,
     fontWeight: 'medium',
     color: colors.black,
+  },
+  detailsReviewTabs: {
+    flexDirection: 'row',
+    paddingTop: spacing.lg,
+    gap: spacing.lg,
+  },
+  tabText: {
+    fontSize: fontSize.md,
+    fontWeight: 'medium',
+    color: colors.gray,
+  },
+  underline: {
+    borderBottomColor: colors.purple,
+    borderBottomWidth: 2,
+    width: '50%',
+    marginTop: spacing.xs,
   },
 });
