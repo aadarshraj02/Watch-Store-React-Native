@@ -1,5 +1,5 @@
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {useRoute} from '@react-navigation/native';
 import Header from '../components/Header';
 import ProductCarousel from '../components/ProductCarousel';
@@ -24,6 +24,8 @@ const colorsData = [
 ];
 
 const ProductDetailsScreen = (): JSX.Element => {
+  const [selectedColor, setSelectedColor] = useState('');
+
   const item = useRoute().params.item;
   return (
     <View style={styles.container}>
@@ -48,10 +50,13 @@ const ProductDetailsScreen = (): JSX.Element => {
               key={index}
               style={[
                 styles.selectColorContainer,
-                // {
-                //   borderColor: colors.purple,
-                // },
-              ]}>
+                item.colorValue === selectedColor && {
+                  borderColor: colors.purple,
+                },
+              ]}
+              onPress={() => {
+                setSelectedColor(item.colorValue);
+              }}>
               <View
                 style={[styles.circleColor, {backgroundColor: item.colorValue}]}
               />
@@ -67,8 +72,6 @@ const ProductDetailsScreen = (): JSX.Element => {
           )}
         />
       </View>
-
-      
     </View>
   );
 };
