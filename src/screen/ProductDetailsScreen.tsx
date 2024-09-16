@@ -12,6 +12,12 @@ const ProductDetailsScreen = (): JSX.Element => {
     <View style={styles.container}>
       <Header />
       <ProductCarousel images={item.images} />
+      <View style={styles.titleContainer}>
+        <View style={styles.titleWrapper}>
+          <Text style={styles.productTitle}>{item.name}</Text>
+          <Text style={styles.productBrand}>{item.brand}</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -23,4 +29,8 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     backgroundColor: colors.background,
   },
+  titleContainer: {},
+  titleWrapper: {},
+  productTitle: {},
+  productBrand: {},
 });
