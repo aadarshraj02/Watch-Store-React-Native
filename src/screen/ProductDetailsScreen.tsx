@@ -14,6 +14,7 @@ import {fontSize, iconSize, spacing} from '../constants/dimensions';
 import {colors} from '../constants/colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {fontFamily} from '../constants/fonts';
+import CartButton from '../components/CartButton';
 
 const colorsData = [
   {
@@ -119,6 +120,7 @@ const ProductDetailsScreen = (): JSX.Element => {
         <Text style={styles.detailsContainer}>
           {selectedTab === 'Details' ? item.details : item.review}
         </Text>
+        <CartButton />
       </ScrollView>
     </View>
   );
